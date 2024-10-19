@@ -128,7 +128,7 @@ function Header() {
                  <img src={user?.profilePic} alt="" className='w-10 h-10 rounded-full'/>
                  {
                   user.role==="ADMIN" &&(
-                    <p className='text-[#FF0000] tex-sm'>{user.role}</p>
+                    <p className='text-[#FF0000] text-sm'>{user.role}</p>
                   )
                  }
               </div>
