@@ -123,8 +123,13 @@ function Header() {
           </button>
           {
             user?.profilePic ? (
-              <div className='w-10 h-10'>
+              <div className=' grid place-content-center place-items-center w-10 h-14'>
                  <img src={user?.profilePic} alt="" className='w-10 h-10 rounded-full'/>
+                 {
+                  user.role==="ADMIN" &&(
+                    <p className='text-[#FF0000] tex-sm'>{user.role}</p>
+                  )
+                 }
               </div>
             ) : (
               <FaUserCircle className="text-[#FF0000] text-4xl cursor-pointer" />
