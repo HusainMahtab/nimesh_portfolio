@@ -102,7 +102,7 @@ function Header() {
             <img
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnWqE1uBiDzHDjPbROKyTQK4l-2viGz5r8Wg&s"
               alt="logo"
-              className='w-10 h-10'
+              className='w-14 h-14'
             />
         </Link>
         <div className="flex gap-2 justify-center items-center">
