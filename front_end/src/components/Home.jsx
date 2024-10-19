@@ -35,7 +35,7 @@ function Home() {
             repeat={Infinity}
           />
             </h1>
-            <p className='text-md font-semibold md:text-lg'>As a passionate and dedicated software developer, I bring strong problem-solving abilities and a solid foundation in C++, SQL, and NoSQL databases like MongoDB. I have hands-on experience building responsive, user-friendly interfaces with Tailwind CSS, ensuring both functionality and design excellence. My focus is on creating efficient, scalable applications while constantly learning and applying new technologies. I'm seeking a software development internship where I can contribute my skills to real-world projects and continue to grow as a developer..</p>
+            <p className='text-md font-semibold p-4 md:text-lg'>As a passionate and dedicated software developer, I bring strong problem-solving abilities and a solid foundation in C++, SQL, and NoSQL databases like MongoDB. I have hands-on experience building responsive, user-friendly interfaces with Tailwind CSS, ensuring both functionality and design excellence. My focus is on creating efficient, scalable applications while constantly learning and applying new technologies. I'm seeking a software development internship where I can contribute my skills to real-world projects and continue to grow as a developer..</p>
             <div className='w-full grid md:flex justify-between items-center p-2 gap-3 md:gap-8'>
                 <div className=''>
                     <p className='font-semibold font-sans p-2 text-xl md:text-lg text-center'>Available on</p>
