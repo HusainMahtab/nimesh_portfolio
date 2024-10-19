@@ -35,11 +35,11 @@ function Home() {
             repeat={Infinity}
           />
             </h1>
-            <p className='text-md font-semibold p-4 md:text-lg'>As a passionate and dedicated software developer, I bring strong problem-solving abilities and a solid foundation in C++, SQL, and NoSQL databases like MongoDB. I have hands-on experience building responsive, user-friendly interfaces with Tailwind CSS, ensuring both functionality and design excellence. My focus is on creating efficient, scalable applications while constantly learning and applying new technologies. I'm seeking a software development internship where I can contribute my skills to real-world projects and continue to grow as a developer..</p>
+            <p className='text-md font-semibold p-1 md:text-lg'>As a passionate and dedicated software developer, I bring strong problem-solving abilities and a solid foundation in C++, SQL, and NoSQL databases like MongoDB. I have hands-on experience building responsive, user-friendly interfaces with Tailwind CSS, ensuring both functionality and design excellence. My focus is on creating efficient, scalable applications while constantly learning and applying new technologies. I'm seeking a software development internship where I can contribute my skills to real-world projects and continue to grow as a developer..</p>
             <div className='w-full grid md:flex justify-between items-center p-2 gap-3 md:gap-8'>
                 <div className=''>
                     <p className='font-semibold font-sans p-2 text-xl md:text-lg text-center'>Available on</p>
-                    <div className='w-[300px] flex justify-center gap-4 items-center text-4xl md:text-2xl'>
+                    <div className='w-full flex justify-center gap-4 items-center text-4xl md:text-2xl'>
                         <Link onClick={()=>window.open("https://github.com/PandeyNimesh","_blank",'noopener,noreferrer')}><FaSquareGithub className='cursor-pointer hover:scale-125 duration-500'/></Link>
                         <Link onClick={()=>window.open("https://www.linkedin.com/in/nimeshpandey2002/","_blank",'noopener,noreferrer')}><FaLinkedin className='cursor-pointer hover:scale-125 duration-500'/></Link>
                         <Link onClick={()=>window.open("https://www.instagram.com/nimeshpandey143/","_blank",'noopener,noreferrer')}><FaInstagramSquare className='cursor-pointer hover:scale-125 duration-500'/></Link>
