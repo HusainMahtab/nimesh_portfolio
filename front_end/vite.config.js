@@ -9,7 +9,7 @@ export default defineConfig({
     proxy: {
       // Proxy all API requests during local development
       '/api': {
-        target: 'http://localhost:4000',
+        target:'https://nimesh-portfolio-back-end.onrender.com',
       },
     },
   }
