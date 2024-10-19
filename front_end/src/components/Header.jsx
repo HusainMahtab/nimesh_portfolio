@@ -98,7 +98,7 @@ function Header() {
 
       {/* Mobile View */}
       <div className="flex md:hidden gap-2 justify-between items-center">
-        <Link to="/" className="flex items-center p-4 animate-bounce">
+        <Link to="/" className="flex items-center animate-bounce">
             <img
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnWqE1uBiDzHDjPbROKyTQK4l-2viGz5r8Wg&s"
               alt="logo"
