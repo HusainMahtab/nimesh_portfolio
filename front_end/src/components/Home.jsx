@@ -39,7 +39,7 @@ function Home() {
             <div className='w-full grid md:flex justify-between items-center p-2 gap-3 md:gap-8'>
                 <div className=''>
                     <p className='font-semibold font-sans p-2 text-xl md:text-lg text-center'>Available on</p>
-                    <div className='w-[300px] flex justify-center gap-8 items-center text-4xl md:text-2xl'>
+                    <div className='w-[300px] flex justify-center gap-4 items-center text-4xl md:text-2xl'>
                         <Link onClick={()=>window.open("https://github.com/PandeyNimesh","_blank",'noopener,noreferrer')}><FaSquareGithub className='cursor-pointer hover:scale-125 duration-500'/></Link>
                         <Link onClick={()=>window.open("https://www.linkedin.com/in/nimeshpandey2002/","_blank",'noopener,noreferrer')}><FaLinkedin className='cursor-pointer hover:scale-125 duration-500'/></Link>
                         <Link onClick={()=>window.open("https://www.instagram.com/nimeshpandey143/","_blank",'noopener,noreferrer')}><FaInstagramSquare className='cursor-pointer hover:scale-125 duration-500'/></Link>
@@ -48,7 +48,7 @@ function Home() {
                 </div>
                 <div className=''>
                     <p className='font-semibold font-sans p-2 text-xl md:text-lg text-center'>Currently working on</p>
-                    <div className='w-full flex justify-between items-center gap-2 md:gap-8 text-4xl md:text-2xl'>
+                    <div className='w-full flex justify-between items-center gap-2 md:gap-2 text-4xl md:text-2xl'>
                       <TbBrandCpp/>
                       <SiMongodb/>
                       <FaReact/>
