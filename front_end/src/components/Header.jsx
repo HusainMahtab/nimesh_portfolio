@@ -105,22 +105,31 @@ function Header() {
             />
         </Link>
         <div className="flex gap-2 justify-center items-center">
-          <button className="border-2 border-[#FF0000] p-1 font-bold bg-[#FF0000] text-white rounded" onClick={()=>navigate("/login")}>
-            Login
-          </button>
+           {
+             user?._id ? (
+               <div>
+                  <button className="border-2 border-[#FF0000] p-2 font-bold bg-[#FF0000] text-white rounded" onClick={handleLogout}>
+                     LogOut
+                 </button>
+               </div>
+             ) : (
+              <button className="border-2 border-[#FF0000] p-2 font-bold bg-[#FF0000] text-white rounded" onClick={()=>navigate("/login")}>
+                 Login
+              </button>
+             )
+           }
           <button className="p-1 border-2 border-[#FF0000] text-[#FF0000] font-bold hover:bg-[#FF0000] hover:text-white" onClick={()=>navigate("/signup")} >
             Signup
           </button>
           {
             user?.profilePic ? (
               <div>
-                 <img src={user.profilePic} alt="" className='w-10 h-10 rounded-full'/>
+                 <img src={user?.profilePic} alt="" className='w-10 h-10 rounded-full'/>
               </div>
             ) : (
-              
               <FaUserCircle className="text-[#FF0000] text-4xl cursor-pointer" />
-              
             )
+
           }
           
         </div>
