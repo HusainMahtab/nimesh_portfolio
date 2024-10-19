@@ -123,7 +123,7 @@ function Header() {
           </button>
           {
             user?.profilePic ? (
-              <div>
+              <div className='w-10 h-10'>
                  <img src={user?.profilePic} alt="" className='w-10 h-10 rounded-full'/>
               </div>
             ) : (
