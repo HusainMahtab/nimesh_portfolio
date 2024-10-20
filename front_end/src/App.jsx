@@ -1,4 +1,4 @@
-import { BrowserRouter as Router,Routes,Route } from "react-router-dom"
+import { BrowserRouter as Router,Routes,Route,Navigate } from "react-router-dom"
 import Header from "./components/Header"
 import Home from "./components/Home"
 import AboutMe from "./components/AboutMe"
@@ -10,6 +10,7 @@ import SignUp from "./components/SignUp"
 import AdminPanel from "./components/AdminPanel"
 import AllProjects from "./components/AllProjects"
 import AllUsers from "./components/AllUsers"
+import UploadProjects from "./components/UploadProjects"
 import AllUsersMessage from "./components/AllUsersMessage"
 import { useDispatch } from 'react-redux';
 import { setUserDetails } from './store/userSlice';
@@ -56,12 +57,14 @@ function App() {
             <Route path="/contact" element={<ContactMe/>}/>
             <Route path="/login" element={<Login/>}/>
             <Route path="/signup" element={<SignUp/>}/>
-            <Route path="/admin_panel" element={<AdminPanel/>}/>
-            <Route path="/admin_panel" element={<AdminPanel/>}>
-                <Route path="all_users" element={<AllUsers />} />
-                <Route path="all_projects" element={<AllProjects/>} />
-                <Route path='all_user_messages' element={<AllUsersMessage/>}/>
-            </Route>    
+              {/* Nested Routes for AdminPanel */}
+            <Route path="/admin_panel" element={<AdminPanel />}>
+              <Route index element={<Navigate to="all_projects" />} />
+              <Route path="all_users" element={<AllUsers />} />
+              <Route path="all_projects" element={<AllProjects />} />
+              <Route path="all_user_messages" element={<AllUsersMessage />} />
+            </Route>
+            <Route path="/upload_project" element={<UploadProjects/>} />    
          </Routes>
       </Router>
     </Context.Provider>

@@ -2,18 +2,24 @@
 import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { FaUserCircle } from "react-icons/fa";
-import {Link,Outlet} from "react-router-dom"
-import { useNavigate } from 'react-router-dom';
+import { Link, Outlet, useNavigate, useLocation } from 'react-router-dom';
 function AdminPanel(){
 
     const user=useSelector(state=>state?.user?.user)
     const navigate=useNavigate()
+    const location = useLocation();
 
-    useEffect(()=>{
-       if(user?.role!=="ADMIN"){
-        navigate("/")
-       }
-    },[user])
+    useEffect(() => {
+      // Check if the user is not an admin and navigate them to home
+      if (user?.role !== 'ADMIN') {
+        navigate('/');
+      }
+      
+      // Auto-select the "All Projects" route if on adminpanel root route
+      if (location.pathname === '/adminpanel') {
+        navigate('/adminpanel/all_projects');
+      }
+    }, [user, location, navigate]);
     
     return(
         <div className='h-96 my-16 sm:flex hidden w-full'>

@@ -92,7 +92,7 @@ const login_user=AsyncHandler(async(req,res)=>{
     const options = {
         httpOnly: true,                   
         secure: process.env.NODE_ENV === 'production',  
-        sameSite:'none'               
+        // sameSite:'none'               
       };
     return res
     .status(200)
@@ -138,9 +138,10 @@ const allUsers=AsyncHandler(async(req,res)=>{
     if(!allusers){
         throw new ApiError(404,"users not found!")
     }
+    const countUser=await User.countDocuments()
     return res
     .status(200)
-    .json(new ApiResponse(200,allusers,"users found successfully"))
+    .json(new ApiResponse(200,{allusers,countUser},"users found successfully"))
 })
 
 
