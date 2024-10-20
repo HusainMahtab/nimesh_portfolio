@@ -127,7 +127,7 @@ const logout=AsyncHandler(async(req,res)=>{
     .clearCookie('AccessToken', {
         httpOnly: true, // Ensures the cookie is only accessible by the server
         secure: process.env.NODE_ENV === 'production', // Secure cookie in production
-        // sameSite: 'none', // Adjust SameSite policy if needed
+        sameSite: 'none', // Adjust SameSite policy if needed
     })
     .json(new ApiResponse(200,{},`${currentUser.role} logout successfully`))
 })
