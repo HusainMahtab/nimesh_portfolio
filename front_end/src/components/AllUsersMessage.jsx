@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import {Link} from "react-router-dom"
 import axios from "axios"
-import {Toaster,toast} from "react-hot-toast"
+import toast, { Toaster } from 'react-hot-toast';
 
 function AllUsersMessage() {
   const [allMessage,setAllMessage]=useState([])
@@ -22,6 +21,17 @@ function AllUsersMessage() {
  useEffect(()=>{
   getMessage()
  },[])
+
+ const handleDeleteMessage=async(_id)=>{
+   try {
+     await axios.delete(`${import.meta.env.VITE_BASE_URL}/api/v1/message/delete_message/${_id}`,{withCredentials:true})
+     setAllMessage((prevMessage)=>prevMessage.filter((message)=>message._id!==_id))
+     toast.success('user message deleted successfully')
+   } catch (error) {
+     console.error("message not deleted",error)
+     toast.error("message not deleted, something is wrong?")
+   }
+ }
   return (
     <div>
      <h1 className='w-full text-center font-bold p-2 text-xl'>All Messagess <span>{`(${countMessagess})`}</span></h1>
