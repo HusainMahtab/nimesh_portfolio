@@ -5,7 +5,9 @@ import {
     login_user,
     profileDetails,
     logout,
-    allUsers 
+    allUsers,
+    uploadResume,
+    downloadResume
 } from "../controllers/user.controller.js"
 import { authorizedRole } from "../middlewares/verifyJWT.middleware.js"
 import { authorizedUser } from "../middlewares/verifyJWT.middleware.js"
@@ -25,5 +27,18 @@ router.route("/profile").get(authorizedUser,profileDetails)
 router.route("/logout").post(authorizedUser,logout)
 //get all users ---->ADMIN
 router.route("/allusers").get(authorizedUser,authorizedRole("ADMIN"),allUsers)
+// In your route handler
+router.route("/upload-resume/:_id")
+    .post(upload.single('resume'), (err, req, res, next) => {
+        // if (err instanceof multer.MulterError) {
+        //     return res.status(400).json({ error: err.message });
+        // } else if (err) {
+        //     return res.status(400).json({ error: err.message });
+        // }
+        next();
+    }, uploadResume);
+// In your userRoutes.js
+router.route("/download-resume/:_id").get(authorizedUser,downloadResume);
+  
 
 export {router}

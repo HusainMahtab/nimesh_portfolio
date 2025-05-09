@@ -23,6 +23,7 @@ const userSchema=new mongoose.Schema({
         type:String,
         default:"USER"
     },
+    resumeUrl:String,
     profilePic:String,
     accessToken:String,
 },{timestamps:true})

@@ -2,6 +2,8 @@ import {ApiError} from "../utils/ApiError.js"
 import { ApiResponse } from "../utils/ApiResponse.js"
 import { AsyncHandler } from "../utils/AsyncHandler.js"
 import { User } from "../models/user.modle.js"
+import fs from 'fs';
+import path from 'path';
 
 const generateToken=async(userId)=>{
     try {
@@ -144,11 +146,66 @@ const allUsers=AsyncHandler(async(req,res)=>{
     .json(new ApiResponse(200,{allusers,countUser},"users found successfully"))
 })
 
+// Upload resume (Admin only)
+const uploadResume = AsyncHandler(async (req, res) => {
+    const userId = req.params._id
+    //console.log("user",userId)
+   // console.log("current User",userId) // Get admin's user ID from auth middleware
+    const resumeFile = req.file
+    console.log("resume",resumeFile)
+    if (!resumeFile) {
+        throw new ApiError(400, "Resume file is required");
+    }
+
+    // Update user's resumeUrl in database
+    const updatedUser = await User.findByIdAndUpdate(
+        userId,
+        { resumeUrl: resumeFile.path },
+        { new: true }
+    );
+
+    if (!updatedUser) {
+        throw new ApiError(500, "Failed to update resume");
+    }
+
+    return res
+        .status(200)
+        .json(new ApiResponse(200, updatedUser, "Resume uploaded successfully"));
+});
+
+// download resume from Cloudinary
+// Download resume
+const downloadResume = AsyncHandler(async (req, res) => {
+    const userId = req.params._id;
+    
+    if (!userId) {
+        throw new ApiError(400, "User ID is required");
+    }
+
+    const user = await User.findById(userId);
+    
+    if (!user) {
+        throw new ApiError(404, "User not found");
+    }
+
+    if (!user.resumeUrl) {
+        throw new ApiError(404, "Resume not found for this user");
+    }
+
+    // Return the resume URL for download
+    return res
+        .status(200)
+        .json(new ApiResponse(200, { resumeUrl: user.resumeUrl }, "Resume URL fetched successfully"));
+});
+
+
 
 export {
     signUp,
     login_user,
     logout,
     profileDetails,
-    allUsers
+    allUsers,
+    uploadResume,
+    downloadResume
 }

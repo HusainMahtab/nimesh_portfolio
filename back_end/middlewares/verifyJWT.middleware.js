@@ -6,7 +6,8 @@ import { User } from "../models/user.modle.js";
 const authorizedUser=AsyncHandler(async(req,res,next)=>{
     try {
         const token = req.cookies?.AccessToken || req.header("Authorization")?.replace("Bearer ", "");
-        console.log("token",token)
+        console.log("cookie req",req.cookies)
+        console.log("token access",token)
         if(!token){
             throw new ApiError(402,"token not found in cookies")
         }
